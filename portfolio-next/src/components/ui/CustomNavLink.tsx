@@ -7,13 +7,13 @@ export function CustomLink({name, link, className = ""}:{name: string, link: str
     const pathName = usePathname();
     return(
         <div>
-            <Link href={link} className="" target={name=="blogs" ? "_blank": "_self"}>
+            <Link href={link} className="m-4 relative group" >
             {name}
             <span
             className={`h-[1px] inline-block dark:bg-white absolute left-0 -bottom-0.5 group-hover:w-full translate-[width] ease duration-300 ${pathName===link ? "w-full": "w-0"}`}
             >
             &nbsp;
-            </span>
+          </span>
             </Link>
         </div>
     )

@@ -1,4 +1,4 @@
-"use-client"
+"use client";
 
 import { CustomLink } from './ui/CustomNavLink';
 import {motion} from 'framer-motion';
@@ -13,7 +13,7 @@ const NavbarDesktop = ({navItems} : {navItems: INavItems[]}) => {
     return(
         <div className="w-full px-32 py-8 font-medium flex items-center justify-between">
             <div>
-                <div>
+                <div className='flex'>
                     {navItems.map((item, index) => (
                         <CustomLink key={index} name={item.name} link={item.link}/>
                     ))}
