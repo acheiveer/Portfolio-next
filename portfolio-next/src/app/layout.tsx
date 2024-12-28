@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import {ThemeProvider} from "next-themes"
+import SpotlightPreview from "@/components/SpotlightPreview";
 
 const inter = Raleway({ 
   subsets: ["latin"],
@@ -31,7 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          
+          <SpotlightPreview/>
           <Navbar />
           <div>{children}</div>
           <Footer />
