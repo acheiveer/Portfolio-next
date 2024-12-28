@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-export function CustomLink({name, link, className = ""}:{name: string, link: string, className?: string}) {
+export function CustomLink({name, link}:{name: string, link: string, className?: string}) {
     const pathName = usePathname();
     return(
         <div>
