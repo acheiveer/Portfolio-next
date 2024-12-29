@@ -10,19 +10,19 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import SkillSection from "./skillpage";
 
-const iconVariants = (duration: number) => ({
+const iconVariants = (duration : number) => ({
     initial: { y: -10 },
     animate: {
       y: [10, -10],
       transition: {
-        duration,
+        duration: duration,
         ease: "linear",
         repeat: Infinity,
-        repeatType: "reverse" as "reverse", // Ensure repeatType is treated as a literal
-      } as const, // Make sure the transition object is treated as a constant
+        repeatType: "reverse",
+      },
     },
   });
-  
+
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
