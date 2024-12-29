@@ -11,12 +11,8 @@ const navItems: Inavitem[] = [
         link: "/"
       },
       {
-        name: "Blogs",
-        link: "https://medium.com/@prabhakr4u"
-      },
-      {
-        name: "About",
-        link: "/about"
+        name: "Skills",
+        link: "/skills"
       },
       {
         name: "Experience",
@@ -27,8 +23,12 @@ const navItems: Inavitem[] = [
         link: "/projects"
       },
       {
-        name: "Student Guide",
-        link: "/student-guide"
+        name: "Blogs",
+        link: "https://medium.com/@prabhakr4u"
+      },
+      {
+        name: "About",
+        link: "/about"
       },
       {
         name: "Contact",
