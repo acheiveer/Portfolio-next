@@ -6,20 +6,20 @@ const SkillSection = () => {
   const SKILLS = [
     {
       category: "Programming Language",
-      value: "C, C++, Java, JavaScript, TypeScript",
+      value: "C, C++, JavaScript, TypeScript, HTML5, CSS3, SQL",
     },
     {
       category: "Frameworks/ Libraries",
       value:
-        "React.js, Next.js, Node.js, Express.js, EJS",
+        "React.js, Next.js, Node.js, Express.js, EJS, OpenUI5, Tailwind CSS",
     },
     {
       category: "Database",
-      value: "MySQL, MongoDB, Redis",
+      value: "PostgreSQL, MongoDB, Redis",
     },
     {
       category: "DevOps",
-      value: "Docker, Kubernetes, AWS",
+      value: "Docker, Kubernetes, AWS, Git, GitHub Actions (CI/CD)",
     },
   ];
   return (
@@ -28,7 +28,7 @@ const SkillSection = () => {
         {SKILLS.map((skill, key) => (
           <div key={key} className="flex gap-1 md:gap-3 mt-5 text-sm md:text-base">
             <div className="text-white text-lg font-bold">{skill.category}:</div>
-            <div>{skill.value}</div>
+            <div className="m-0.5">{skill.value}</div>
           </div>
         ))}
       </div>
