@@ -10,7 +10,7 @@ export function CustomLink({name, link}:{name: string, link: string, className?:
             <Link href={link} className="m-4 relative group" target={name=="Blogs" ? "_blank" : "_self"} >
             {name}
             <span
-            className={`h-[1px] inline-block dark:bg-white absolute left-0 -bottom-0.5 group-hover:w-full translate-[width] ease duration-300 ${pathName===link ? "w-full": "w-0"}`}
+            className={`h-[1px] inline-block bg-white absolute left-0 -bottom-0.5 group-hover:w-full translate-[width] ease duration-300 ${pathName===link ? "w-full": "w-0"}`}
             >
             &nbsp;
           </span>

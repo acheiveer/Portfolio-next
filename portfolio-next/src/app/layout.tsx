@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import Footer from "@/components/Footer";
@@ -36,7 +37,7 @@ export default function RootLayout({
           <Navbar />
           <div>{children}</div>
           <Footer />
-          
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
