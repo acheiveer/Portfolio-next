@@ -1,8 +1,8 @@
 "use client";
 
+import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-
 const Hero = () => {
   const words = [
     {
@@ -32,15 +32,70 @@ const Hero = () => {
     },
   ];
   const router = useRouter();
+  const headRef = useRef<HTMLHeadingElement | null>(null);;
+  const  [showTypeWriter, setShowTypeWriter] = useState(false);
+
+  const randomEffect = () => {
+    const original = "Prabhakar kumar".split("");
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+    let iterations = 0;
+
+    const interval = setInterval(() => {
+      if (headRef.current) {
+        headRef.current.innerText = headRef.current.innerText
+          .split("")
+          .map((letter, index) => {
+            if (index < iterations) return original[index];
+            return letters[Math.floor(Math.random() * 36)];
+          })
+          .join("");
+      }
+
+      if (iterations >= original.length) {
+        clearInterval(interval);
+        // Trigger the typewriter effect after the random effect ends
+        setTimeout(()=>{
+          setShowTypeWriter(true);
+        },800)
+        
+      }
+      iterations += 1 / 3;
+    }, 70);
+  };
+  useEffect(() => {
+    randomEffect();
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center h-[20rem] md:h-[26rem]  ">
       <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
         Transforming Ideas into Functional Software
       </p>
-      <TypewriterEffectSmooth
+      {/* <TypewriterEffectSmooth
         className="text-base sm:text-2xl md:text-3xl lg:text-5xl"
         words={words}
-      />
+      /> */}
+      {/* <section
+          ref={headRef}
+          className={`w-full h-auto my-5 text-[2rem] md:text-[4rem] lg:text-[6rem] text-white text-center font-Audiowide z-5`}
+        >
+          Prabhakar Kumar
+        </section> */}
+
+     {!showTypeWriter ? (
+        <h1
+          ref={headRef}
+          className="w-full h-auto my-5 text-[2rem] md:text-[4rem] lg:text-[6rem] text-white text-center font-Audiowide z-5"
+        >
+          Prabhakar Kumar
+        </h1>
+      ) : (
+        <TypewriterEffectSmooth
+          className="text-base sm:text-2xl md:text-3xl lg:text-5xl"
+          words={words}
+        />
+      )}
+        
       <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 space-x-0 md:space-x-5">
         <a href="mailto:prabhakarsinghssm1@gmail.com" target="_blank">
         <button

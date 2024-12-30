@@ -16,6 +16,8 @@ export default {
     extend: {
       fontFamily: {
         'sans': ['var(--font-raleway)', ...defaultTheme.fontFamily.sans],
+        Audiowide: ["Audiowide", "cursive"],
+        Mono: ["Syne Mono", "monospace"],
       },
       colors: {
         "dark-color": {
