@@ -71,7 +71,8 @@ export async function sendMessage(message: string): Promise<ChatResponse> {
     response.text = await result.response.text();
     response.conversation = conversation;
     return response;
-  } catch (error: any) {
+  } catch (error: unknown) {
+    console.error("Error sending message:", error);
     response.conversation = conversation;
     return response;
   }

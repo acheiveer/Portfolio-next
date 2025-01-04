@@ -13,17 +13,10 @@ interface ChatMessage {
   parts: string[];
 }
 
-interface Conversation {
-  id: string;
-  context: Record<string, unknown>;
-  [key: string]: unknown; // Add additional properties as needed
-}
-
-
 interface ApiResponse {
   data: {
     text: string;
-    conversation: Conversation | null;
+    conversation: any;
   };
   status: number;
 }
@@ -32,7 +25,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ toggleChat }) => {
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
   const [messageInput, setMessageInput] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const [conversationObject, setConversationObject] = useState<Conversation | null>(null);
+  const [conversationObject, setConversationObject] = useState<any>(null);
 
   const chatRef = useRef<HTMLDivElement | null>(null);
 

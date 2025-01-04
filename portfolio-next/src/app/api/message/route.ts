@@ -61,9 +61,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { message, conversation } = body;
   
-    console.log("Endpoint works!");
-    console.log("message", message);
-    console.log("Conversation",conversation );
   
     if (!conversation) {
       // console.log("New conversation!");
