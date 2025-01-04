@@ -48,8 +48,6 @@ export async function initializeChat(message: string): Promise<ChatSession | nul
 }
 
 export async function sendMessage(message: string): Promise<ChatResponse> {
-  const geminiApiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY; // Server-only variable
-
   const response: ChatResponse = {
     text: 'Something went wrong',
     conversation: null
