@@ -3,6 +3,8 @@
 import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import Chatbot from "./chatbot";
+
 const Hero = () => {
   const words = [
     {
@@ -34,6 +36,9 @@ const Hero = () => {
   const router = useRouter();
   const headRef = useRef<HTMLHeadingElement | null>(null);;
   const  [showTypeWriter, setShowTypeWriter] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  
+
 
   const randomEffect = () => {
     const original = "Prabhakar kumar".split("");
@@ -66,6 +71,15 @@ const Hero = () => {
     randomEffect();
   }, []);
 
+  const togglechat = () =>{
+    console.log('toggleChat')
+    setIsOpen(!isOpen);
+  }
+
+  const handleResume = () =>{
+    togglechat();
+  }
+
   return (
     <div className="flex flex-col items-center justify-center h-[20rem] md:h-[26rem]  ">
       <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
@@ -97,13 +111,10 @@ const Hero = () => {
       )}
         
       <div className="flex flex-col md:flex-row space-y-5 md:space-y-0 space-x-0 md:space-x-5">
-        <a href="mailto:prabhakarsinghssm1@gmail.com" target="_blank">
-        <button
-          className="px-10 py-3 rounded-full bg-gradient-to-b from-blue-500 to-blue-600 text-white text-base font-medium focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200"
-        >
-          Hire Me
-        </button>
-        </a>
+        <div onClick={handleResume} className={`absolute w-16 md:w-24 aspect-square object-contain bottom-10 right-6 bg-transparent cursor-pointer text-white hover:scale-110 animate-spin-slow hover:animate-spin-slower`}>
+          <img src="/hire.png" alt="hire me" className={`h-full`}/>
+        </div>
+        {isOpen ? <Chatbot toggleChat={togglechat} /> : null}
         
         <a href="./Resume.pdf" target="_blank" rel="noopener noreferrer" download>
         <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">

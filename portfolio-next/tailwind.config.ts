@@ -27,7 +27,10 @@ export default {
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        'spin-slow': 'spin 3s linear infinite',
+        'spin-slower': 'spin 4s linear infinite',
       },
+      
       keyframes: {
         spotlight: {
           "0%": {
