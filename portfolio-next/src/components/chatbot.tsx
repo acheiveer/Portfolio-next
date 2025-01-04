@@ -87,7 +87,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ toggleChat }) => {
       setChatHistory([
         {
           role: 'model',
-          parts: ['Hi, I am Tim. How can I help you?'],
+          parts: ['Hi, I am Tim, the Prabhakar Assistant. How can I help you?'],
         },
       ]);
 

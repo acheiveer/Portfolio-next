@@ -32,7 +32,7 @@ export async function initializeChat(message: string): Promise<ChatSession | nul
 
     const initHistory: Content[] = [
       { role: "user", parts: [{ text: message }] },
-      { role: "model", parts: [{ text: "Hi, I am Tim. How can I help you?" }] },
+      { role: "model", parts: [{ text: "Hi, I am Tim, the Prabhakar Assistant. How can I help you?" }] },
     ];
 
     conversation = model.startChat({
