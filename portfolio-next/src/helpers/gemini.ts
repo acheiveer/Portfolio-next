@@ -56,7 +56,7 @@ export async function sendMessage(message: string): Promise<ChatResponse> {
   if (!conversation) {
     console.error("Conversation not initialized");
     return {
-      text: "Conversation not initialized",
+      text: "Conversation not initialized, Close the dialog box",
       conversation: null,
     };
   }

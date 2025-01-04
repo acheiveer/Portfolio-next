@@ -52,7 +52,6 @@ const Chatbot: React.FC<ChatbotProps> = ({ toggleChat }) => {
       });
 
       const apiData = apiResponse?.data;
-      console.log("apidata",apiData);
       if (apiResponse.status === 403) {
         updateChatHistory(apiData?.text);
         return;

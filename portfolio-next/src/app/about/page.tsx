@@ -19,8 +19,9 @@ const About = () => {
   }, [isInView]);
 
   const ACHIEVEMENTS = [
-    "",
-    "",
+    "Awarded with the Above and Beyond Award (Individual)! 🎉 in my Current Organisation.",
+    "Solved more than 400+ DSA problems",
+    "Certified AWS Cloud Practitioner"
   ];
 
   return (
