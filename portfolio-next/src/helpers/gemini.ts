@@ -1,7 +1,6 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, ChatSession } from "@google/generative-ai";
 
-let conversation: any | null = null;
-
+// Define types for conversation and chat response
 interface Part {
   text: string;
 }
@@ -11,12 +10,15 @@ interface Content {
   parts: Part[];
 }
 
+// Use `ChatSession` from the library instead of defining a custom type for the conversation
 interface ChatResponse {
   text: string;
-  conversation: any | null; 
+  conversation: ChatSession | null; // Use `ChatSession` from the library
 }
 
-export async function initializeChat(message: string): Promise<any | null> {
+let conversation: ChatSession | null = null;
+
+export async function initializeChat(message: string): Promise<ChatSession | null> {
   const geminiApiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY; // Server-only variable
   if (!geminiApiKey) {
     console.error("GEMINI API Key is not set");
@@ -37,7 +39,7 @@ export async function initializeChat(message: string): Promise<any | null> {
       history: initHistory,
       generationConfig: { maxOutputTokens: 350 },
     });
-    conversation._apiKey = null;
+
     return conversation;
   } catch (error) {
     console.error("Error initializing chat:", error);
@@ -48,10 +50,10 @@ export async function initializeChat(message: string): Promise<any | null> {
 export async function sendMessage(message: string): Promise<ChatResponse> {
   const geminiApiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY; // Server-only variable
 
-  const response = {
+  const response: ChatResponse = {
     text: 'Something went wrong',
     conversation: null
-  }
+  };
 
   if (!conversation) {
     console.error("Conversation not initialized");
@@ -62,13 +64,9 @@ export async function sendMessage(message: string): Promise<ChatResponse> {
   }
 
   try {
-    conversation._apiKey = geminiApiKey;
+    // No need to manually set `_apiKey`, the library handles it
     const result = await conversation.sendMessage(message);
-    // const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-    // await delay(1000); // Delay for 1 seconds
-    // console.log(result)
-    response.text = await result.response.text();
+    response.text = await result.response.text(); // Adjust as per the actual structure of the response
     response.conversation = conversation;
     return response;
   } catch (error: unknown) {
@@ -76,5 +74,4 @@ export async function sendMessage(message: string): Promise<ChatResponse> {
     response.conversation = conversation;
     return response;
   }
-  
 }
