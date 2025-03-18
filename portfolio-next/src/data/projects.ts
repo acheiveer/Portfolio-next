@@ -1,7 +1,7 @@
 import { IProject } from "./types"
 import AIBlogger from "@/Images/ProjectImages/AIBlogger.png"
 import soon from "@/Images/ProjectImages/soon.webp"
-import ChatApp from "@/Images/ProjectImages/soon.webp"
+import ChatApp from "@/Images/ProjectImages/ChatApp.png"
 
 const projects: Array<IProject> = [
   {
@@ -9,7 +9,7 @@ const projects: Array<IProject> = [
     description: "Developed a scalable, real-time chat application with MERN, Socket.io, and Zustand, featuring JWT authentication, real-time notifications, and an intuitive UI, boosting engagement by 80%.",
     thumbnail: ChatApp,
     githubLink: "https://friendochats.onrender.com/",
-    demoLink: "https://friendochats.onrender.com/"
+    demoLink: "https://github.com/acheiveer/FriendOChats"
   },
   {
     title: "AI Blogger",
